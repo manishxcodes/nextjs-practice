@@ -11,7 +11,7 @@ export default function Signup() {
           <InputBox label={"Email"} placeholder={"johndoe@gmail.com"} type={"text"} />
           <InputBox label={"Password"} placeholder={"minimum 8 digit"} type={"text"} />
           <div className="flex justify-center items-center">
-            <button className="my-2 bg-black text-white text-sm px-2 py-1 rounded-md">Sign up</button>
+            <button className="my-2 bg-black text-white text-sm px-4 py-2 rounded-md">Sign up</button>
           </div>
         </div>
       </div>
