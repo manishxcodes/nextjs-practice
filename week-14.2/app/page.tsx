@@ -1,5 +1,4 @@
 import axios from "axios";
-import { resolve } from "path";
 
 async function getUserData() {
   await new Promise((resolve) => setTimeout(resolve, 1000));  // adds artificial delay to mimic a backend
