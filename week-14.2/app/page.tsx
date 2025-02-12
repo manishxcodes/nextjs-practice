@@ -1,12 +1,23 @@
-import axios from "axios";
+import client from "@/db"
+
+// async function getUserData() {
+//   await new Promise((resolve) => setTimeout(resolve, 1000));  // adds artificial delay to mimic a backend
+
+//   //const response = await axios.get("https://week-13-offline.kirattechnologies.workers.dev/api/v1/user/details");
+  
+//   const response = await axios.get("http://localhost:3000/api/user")
+//   return response.data;
+// }
+
+// better way to fetch data
 
 async function getUserData() {
-  await new Promise((resolve) => setTimeout(resolve, 1000));  // adds artificial delay to mimic a backend
+  const user = await client.user.findFirst();
 
-  //const response = await axios.get("https://week-13-offline.kirattechnologies.workers.dev/api/v1/user/details");
-  
-  const response = await axios.get("http://localhost:3000/api/user")
-  return response.data;
+  return {
+    email: user?.email,
+    name: user?.firstName
+  }
 }
 
 // async component
