@@ -37,7 +37,8 @@ export function Signup() {
 
               {/* // this button uses server action */}
               <button className="my-2 bg-black text-white text-sm px-4 py-2 rounded-md" onClick={async () => {
-                await signup(firstName, lastName, email, password);
+                const response = await signup(firstName, lastName, email, password);
+                console.log(response.message);
                 router.push('/');   // navigate to landing page i.e '/' route
               }}>Sign up II</button>
             </div>
