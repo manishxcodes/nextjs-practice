@@ -19,13 +19,10 @@ export async function signup(
             }
         });
 
-        return NextResponse.json({
-            message: "Signup Successful"
-        });    
-    }   catch(err: any) {
-            console.log("error:", err);
-            return NextResponse.json({
-                message: "Error while signing up", error: err.message
-            }, {status: 500});
+        return { message: "Signup Successful" };    
+    }   
+    catch(err: any) {
+        console.log("error:", err);
+        return { message: "Error while signing up", error: err.message };
     } 
 }
