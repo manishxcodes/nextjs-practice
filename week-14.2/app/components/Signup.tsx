@@ -3,6 +3,7 @@
 import axios from "axios";
 import { ChangeEventHandler, useState } from "react";
 import { useRouter } from "next/navigation";
+import { signup } from "../actions/user";
 
 export function Signup() {
     const [firstName, setFirstName] = useState("");
@@ -22,7 +23,7 @@ export function Signup() {
             <InputBox label={"First Name"} placeholder={"John"} type={"text"} onChange={(e) => {setFirstName(e.target.value)}}/>
             <InputBox label={"Last Name"} placeholder={"Doe"} type={"text"} onChange={(e) => {setLastName(e.target.value)}} />
             <InputBox label={"Email"} placeholder={"johndoe@gmail.com"} type={"text"} onChange={(e) => {setEmail(e.target.value)}} />
-            <InputBox label={"Password"} placeholder={"minimum 8 digit"} type={"text"} onChange={(e) => {setPassword(e.target.value)}} />
+            <InputBox label={"Password"} placeholder={"minimum 8 digit"} type={"password"} onChange={(e) => {setPassword(e.target.value)}} />
             <div className="flex justify-center items-center">
               <button className="my-2 bg-black text-white text-sm px-4 py-2 rounded-md" onClick={async () => {
                 await axios.post("http://localhost:3000/api/user", {
@@ -33,6 +34,12 @@ export function Signup() {
                 });
                 router.push('/');   // navigate to landing page i.e '/' route
               }}>Sign up</button>
+
+              {/* // this button uses server action */}
+              <button className="my-2 bg-black text-white text-sm px-4 py-2 rounded-md" onClick={async () => {
+                await signup(firstName, lastName, email, password);
+                router.push('/');   // navigate to landing page i.e '/' route
+              }}>Sign up II</button>
             </div>
           </div>
         </div>
